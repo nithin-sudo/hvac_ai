@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HVAC Predictive Health</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">HVAC FIRST</p>
+        <h1>Predictive Climate Health</h1>
+      </div>
+      <div class="status-pill">MVP Outline</div>
+    </header>
+
+    <main class="shell">
+      <section class="summary-band" aria-label="Fleet summary">
+        <div>
+          <span class="metric-label">Vehicles Monitored</span>
+          <strong>1,248</strong>
+        </div>
+        <div>
+          <span class="metric-label">At-Risk HVAC</span>
+          <strong>37</strong>
+        </div>
+        <div>
+          <span class="metric-label">Avg. Confidence</span>
+          <strong>82%</strong>
+        </div>
+        <div>
+          <span class="metric-label">Primary Signal</span>
+          <strong>Cooling Drift</strong>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Product views">
+        <article class="panel customer-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">CUSTOMER HMI</p>
+            <span class="risk medium">Medium Risk</span>
+          </div>
+          <h2>Climate Health</h2>
+          <p class="lead">
+            Your AC is taking longer than normal to cool the cabin.
+          </p>
+          <p class="muted">
+            Recommended: schedule an inspection within 14 days to prevent a
+            possible cooling issue.
+          </p>
+          <div class="button-row">
+            <button type="button">Book Service</button>
+            <button type="button" class="secondary">Remind Later</button>
+          </div>
+        </article>
+
+        <article class="panel dealer-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">DEALER PRE-DIAGNOSIS</p>
+            <span class="risk high">Action</span>
+          </div>
+          <h2>VIN-HVAC-001</h2>
+          <dl class="diagnostics">
+            <div>
+              <dt>Likely issue</dt>
+              <dd>Cooling efficiency degradation</dd>
+            </div>
+            <div>
+              <dt>Evidence</dt>
+              <dd>Slow cooling, high compressor effort, warmer vent temp</dd>
+            </div>
+            <div>
+              <dt>Software</dt>
+              <dd>hvac-1.2.3</dd>
+            </div>
+            <div>
+              <dt>Recommended check</dt>
+              <dd>Inspect pressure stability and cooling loop performance</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="panel oem-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">OEM QUALITY VIEW</p>
+            <span class="risk low">Fleet Signal</span>
+          </div>
+          <h2>Risk Clusters</h2>
+          <div class="bar-list" aria-label="Risk cluster chart">
+            <div class="bar-row">
+              <span>Texas heat region</span>
+              <div class="bar-track"><span style="width: 68%"></span></div>
+              <strong>18</strong>
+            </div>
+            <div class="bar-row">
+              <span>Software hvac-1.2.2</span>
+              <div class="bar-track"><span style="width: 44%"></span></div>
+              <strong>11</strong>
+            </div>
+            <div class="bar-row">
+              <span>Supplier batch A17</span>
+              <div class="bar-track"><span style="width: 32%"></span></div>
+              <strong>8</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -22,6 +22,9 @@ point for product and engineering discussion.
 ```text
 docs/
   day1-design.md
+prototype/
+  index.html
+  styles.css
 src/
   hvac_ai/
     cli.py
@@ -37,6 +40,10 @@ tests/
 ```bash
 python -m hvac_ai.cli
 ```
+
+## View The Static Product Mockup
+
+Open `prototype/index.html` in a browser.
 
 ## Run Tests
 
