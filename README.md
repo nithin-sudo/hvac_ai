@@ -24,8 +24,10 @@ config/
   settings.py
   urls.py
 docs/
+  backend-architecture.md
   day1-design.md
 hvac/
+  api/
   models.py
   scoring.py
   serializers.py
