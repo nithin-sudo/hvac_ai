@@ -20,8 +20,16 @@ point for product and engineering discussion.
 ## Project Layout
 
 ```text
+config/
+  settings.py
+  urls.py
 docs/
   day1-design.md
+hvac/
+  models.py
+  scoring.py
+  serializers.py
+  views.py
 prototype/
   index.html
   styles.css
@@ -41,6 +49,49 @@ tests/
 python -m hvac_ai.cli
 ```
 
+## Backend Setup
+
+Create a `.env` file from `.env.example`, then set PostgreSQL connection values:
+
+```bash
+copy .env.example .env
+```
+
+Install dependencies:
+
+```bash
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Run Django checks:
+
+```bash
+.venv\Scripts\python.exe manage.py check
+```
+
+After PostgreSQL is running and the database exists:
+
+```bash
+.venv\Scripts\python.exe manage.py migrate
+```
+
+Start the backend:
+
+```bash
+.venv\Scripts\python.exe manage.py runserver
+```
+
+First API shape:
+
+```text
+POST /api/vehicles/
+POST /api/hvac/trips/
+GET  /api/vehicles/<vin>/health/
+GET  /api/vehicles/<vin>/dealer-report/
+GET  /api/fleet/hvac-risk/
+```
+
 ## View The Static Product Mockup
 
 Open `prototype/index.html` in a browser.
@@ -48,5 +99,5 @@ Open `prototype/index.html` in a browser.
 ## Run Tests
 
 ```bash
-python -m pytest
+python -m unittest discover -s tests
 ```

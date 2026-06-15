@@ -1,0 +1,22 @@
+from django.urls import path
+from rest_framework.routers import DefaultRouter
+
+from hvac.views import (
+    HVACTripSummaryViewSet,
+    VehicleViewSet,
+    dealer_report,
+    fleet_hvac_risk,
+    vehicle_health,
+)
+
+router = DefaultRouter()
+router.register('vehicles', VehicleViewSet, basename='vehicle')
+router.register('hvac/trips', HVACTripSummaryViewSet, basename='hvac-trip')
+
+urlpatterns = [
+    path('vehicles/<str:vin>/health/', vehicle_health, name='vehicle-health'),
+    path('vehicles/<str:vin>/dealer-report/', dealer_report, name='dealer-report'),
+    path('fleet/hvac-risk/', fleet_hvac_risk, name='fleet-hvac-risk'),
+]
+
+urlpatterns += router.urls
