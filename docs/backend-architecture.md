@@ -20,9 +20,6 @@ hvac/scoring.py
 hvac/serializers.py
   Request/response shapes and create-time assessment generation
 
-hvac/services/
-  Business workflows such as assessment creation and notification decisions
-
 hvac/api/
   API views split by product surface
 
@@ -35,7 +32,6 @@ hvac/urls.py
 - `hvac/api/vehicles.py`: vehicle CRUD and latest vehicle health.
 - `hvac/api/trips.py`: HVAC trip ingestion and assessment creation.
 - `hvac/api/reports.py`: dealer report and OEM fleet risk summaries.
-- `hvac/api/notifications.py`: pending customer, dealer, and OEM notification events.
 
 `hvac/views.py` is kept only as a compatibility import layer for now. New API
 code should go under `hvac/api/`.

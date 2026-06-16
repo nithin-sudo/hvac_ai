@@ -31,7 +31,6 @@ hvac/
   models.py
   scoring.py
   serializers.py
-  services/
   views.py
 prototype/
   index.html
@@ -79,12 +78,6 @@ After PostgreSQL is running and the database exists:
 .venv\Scripts\python.exe manage.py migrate
 ```
 
-Seed demo HVAC records:
-
-```bash
-.venv\Scripts\python.exe manage.py seed_hvac_demo
-```
-
 Start the backend:
 
 ```bash
@@ -99,7 +92,6 @@ POST /api/hvac/trips/
 GET  /api/vehicles/<vin>/health/
 GET  /api/vehicles/<vin>/dealer-report/
 GET  /api/fleet/hvac-risk/
-GET  /api/notifications/?vin=<vin>&pending=true
 ```
 
 ## View The Static Product Mockup

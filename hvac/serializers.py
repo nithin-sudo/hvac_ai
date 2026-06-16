@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from hvac.models import HVACHealthAssessment, HVACTripSummary, NotificationEvent, Vehicle
-from hvac.services.assessments import create_assessment_for_trip
+from hvac.scoring import assess_trip
 
 
 class VehicleSerializer(serializers.ModelSerializer):
@@ -23,7 +23,6 @@ class VehicleSerializer(serializers.ModelSerializer):
 class HVACHealthAssessmentSerializer(serializers.ModelSerializer):
     vin = serializers.CharField(source='vehicle.vin', read_only=True)
     trip_id = serializers.IntegerField(source='trip.id', read_only=True)
-    notifications = serializers.SerializerMethodField()
 
     class Meta:
         model = HVACHealthAssessment
@@ -38,13 +37,9 @@ class HVACHealthAssessmentSerializer(serializers.ModelSerializer):
             'recommended_action',
             'customer_message',
             'dealer_summary',
-            'notifications',
             'created_at',
         ]
         read_only_fields = fields
-
-    def get_notifications(self, assessment):
-        return NotificationEventSerializer(assessment.notifications.all(), many=True).data
 
 
 class HVACTripSummarySerializer(serializers.ModelSerializer):
@@ -79,7 +74,18 @@ class HVACTripSummarySerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         trip = super().create(validated_data)
-        create_assessment_for_trip(trip)
+        result = assess_trip(trip)
+        HVACHealthAssessment.objects.create(
+            trip=trip,
+            vehicle=trip.vehicle,
+            health_score=result.health_score,
+            risk_level=result.risk_level,
+            likely_issue=result.likely_issue,
+            confidence=result.confidence,
+            recommended_action=result.recommended_action,
+            customer_message=result.customer_message,
+            dealer_summary=result.dealer_summary,
+        )
         return trip
 
 
