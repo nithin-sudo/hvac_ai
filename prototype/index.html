@@ -3,91 +3,179 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HVAC Predictive Health</title>
+    <title>HVAC Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="topbar">
+    <header class="app-header">
       <div>
-        <p class="eyebrow">HVAC FIRST</p>
-        <h1>Predictive Climate Health</h1>
+        <p class="eyebrow">OEM QUALITY OPERATIONS</p>
+        <h1>HVAC Predictive Health Dashboard</h1>
       </div>
-      <div class="status-pill">MVP Outline</div>
+      <div class="header-actions">
+        <span class="date-pill">June 16, 2026</span>
+        <button type="button">Export Report</button>
+      </div>
     </header>
 
-    <main class="shell">
-      <section class="summary-band" aria-label="Fleet summary">
-        <div>
+    <main class="page-shell">
+      <section class="metric-grid" aria-label="Fleet summary">
+        <article class="metric-card">
           <span class="metric-label">Vehicles Monitored</span>
           <strong>1,248</strong>
-        </div>
-        <div>
-          <span class="metric-label">At-Risk HVAC</span>
+          <small>active HVAC telemetry</small>
+        </article>
+        <article class="metric-card warning">
+          <span class="metric-label">At Risk</span>
           <strong>37</strong>
-        </div>
-        <div>
-          <span class="metric-label">Avg. Confidence</span>
+          <small>medium or high risk</small>
+        </article>
+        <article class="metric-card danger">
+          <span class="metric-label">High Risk</span>
+          <strong>8</strong>
+          <small>needs service priority</small>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Pending Dealer Notices</span>
+          <strong>21</strong>
+          <small>ready for service teams</small>
+        </article>
+        <article class="metric-card success">
+          <span class="metric-label">Avg Confidence</span>
           <strong>82%</strong>
-        </div>
-        <div>
-          <span class="metric-label">Primary Signal</span>
-          <strong>Cooling Drift</strong>
-        </div>
+          <small>latest assessments</small>
+        </article>
       </section>
 
-      <section class="workspace" aria-label="Product views">
-        <article class="panel customer-panel">
-          <div class="panel-heading">
-            <p class="eyebrow">CUSTOMER HMI</p>
-            <span class="risk medium">Medium Risk</span>
+      <section class="dashboard-grid" aria-label="Admin dashboard">
+        <article class="panel vehicle-list">
+          <div class="panel-title-row">
+            <div>
+              <p class="eyebrow">PRIORITY QUEUE</p>
+              <h2>Vehicles Needing Attention</h2>
+            </div>
+            <span class="count-pill">8 high</span>
           </div>
-          <h2>Climate Health</h2>
-          <p class="lead">
-            Your AC is taking longer than normal to cool the cabin.
-          </p>
-          <p class="muted">
-            Recommended: schedule an inspection within 14 days to prevent a
-            possible cooling issue.
-          </p>
-          <div class="button-row">
-            <button type="button">Book Service</button>
-            <button type="button" class="secondary">Remind Later</button>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>VIN</th>
+                  <th>Model</th>
+                  <th>Region</th>
+                  <th>Risk</th>
+                  <th>Score</th>
+                  <th>Likely Issue</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="selected">
+                  <td>VIN-HVAC-003</td>
+                  <td>CR-V 2025</td>
+                  <td>AZ</td>
+                  <td><span class="risk high">High</span></td>
+                  <td>0</td>
+                  <td>Cooling degradation</td>
+                  <td>Schedule inspection</td>
+                </tr>
+                <tr>
+                  <td>VIN-HVAC-017</td>
+                  <td>Pilot 2026</td>
+                  <td>TX</td>
+                  <td><span class="risk high">High</span></td>
+                  <td>28</td>
+                  <td>Pressure instability</td>
+                  <td>Notify dealer</td>
+                </tr>
+                <tr>
+                  <td>VIN-HVAC-041</td>
+                  <td>Accord 2026</td>
+                  <td>FL</td>
+                  <td><span class="risk medium">Medium</span></td>
+                  <td>56</td>
+                  <td>Slow cabin cooling</td>
+                  <td>Monitor 14 days</td>
+                </tr>
+                <tr>
+                  <td>VIN-HVAC-086</td>
+                  <td>CR-V 2025</td>
+                  <td>CA</td>
+                  <td><span class="risk medium">Medium</span></td>
+                  <td>63</td>
+                  <td>Compressor effort</td>
+                  <td>Prepare report</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </article>
 
-        <article class="panel dealer-panel">
-          <div class="panel-heading">
-            <p class="eyebrow">DEALER PRE-DIAGNOSIS</p>
-            <span class="risk high">Action</span>
+        <aside class="panel detail-panel">
+          <div class="panel-title-row">
+            <div>
+              <p class="eyebrow">SELECTED VEHICLE</p>
+              <h2>VIN-HVAC-003</h2>
+            </div>
+            <span class="risk high">High Risk</span>
           </div>
-          <h2>VIN-HVAC-001</h2>
-          <dl class="diagnostics">
+
+          <div class="score-block">
             <div>
-              <dt>Likely issue</dt>
-              <dd>Cooling efficiency degradation</dd>
+              <span class="metric-label">Health Score</span>
+              <strong>0</strong>
             </div>
             <div>
-              <dt>Evidence</dt>
-              <dd>Slow cooling, high compressor effort, warmer vent temp</dd>
+              <span class="metric-label">Confidence</span>
+              <strong>95%</strong>
+            </div>
+          </div>
+
+          <dl class="detail-list">
+            <div>
+              <dt>Customer message</dt>
+              <dd>Your AC may need attention soon. Schedule service within 7 days.</dd>
             </div>
             <div>
-              <dt>Software</dt>
-              <dd>hvac-1.2.3</dd>
+              <dt>Dealer summary</dt>
+              <dd>Very slow cabin cooling, high compressor effort, weak vent temperature, and unstable pressure behavior.</dd>
             </div>
             <div>
               <dt>Recommended check</dt>
-              <dd>Inspect pressure stability and cooling loop performance</dd>
+              <dd>Inspect refrigerant pressure stability, compressor response, and HVAC software version.</dd>
             </div>
           </dl>
+        </aside>
+      </section>
+
+      <section class="insight-grid" aria-label="Fleet pattern insights">
+        <article class="panel">
+          <p class="eyebrow">FLEET RISK</p>
+          <h2>Risk Breakdown</h2>
+          <div class="stacked-bars">
+            <div class="bar-row">
+              <span>Low</span>
+              <div class="bar-track"><span class="low-fill" style="width: 73%"></span></div>
+              <strong>1,211</strong>
+            </div>
+            <div class="bar-row">
+              <span>Medium</span>
+              <div class="bar-track"><span class="medium-fill" style="width: 21%"></span></div>
+              <strong>29</strong>
+            </div>
+            <div class="bar-row">
+              <span>High</span>
+              <div class="bar-track"><span class="high-fill" style="width: 8%"></span></div>
+              <strong>8</strong>
+            </div>
+          </div>
         </article>
 
-        <article class="panel oem-panel">
-          <div class="panel-heading">
-            <p class="eyebrow">OEM QUALITY VIEW</p>
-            <span class="risk low">Fleet Signal</span>
-          </div>
-          <h2>Risk Clusters</h2>
-          <div class="bar-list" aria-label="Risk cluster chart">
+        <article class="panel">
+          <p class="eyebrow">PATTERN CLUSTERS</p>
+          <h2>Where Issues Are Grouping</h2>
+          <div class="stacked-bars">
             <div class="bar-row">
               <span>Texas heat region</span>
               <div class="bar-track"><span style="width: 68%"></span></div>
@@ -99,7 +187,7 @@
               <strong>11</strong>
             </div>
             <div class="bar-row">
-              <span>Supplier batch A17</span>
+              <span>2025 CR-V build window</span>
               <div class="bar-track"><span style="width: 32%"></span></div>
               <strong>8</strong>
             </div>
